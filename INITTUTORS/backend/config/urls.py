@@ -13,7 +13,12 @@ from django.urls import include, path
 # Versioned API routes. App route modules are added here as they are built,
 # e.g. path("students/", include("apps.students.urls")).
 api_v1_patterns = [
-    # Intentionally empty during initialization — no endpoints yet.
+    path("auth/", include("apps.authentication.urls")),
+    path("institutes/", include("apps.institutes.urls")),
+    path("teachers/", include("apps.teachers.urls")),
+    path("students/", include("apps.students.urls")),
+    path("media/", include("apps.media.urls")),
+    path("batches/", include("apps.batches.urls")),
 ]
 
 urlpatterns = [

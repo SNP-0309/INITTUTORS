@@ -1,13 +1,14 @@
-﻿"""URL routes for the authentication app.
-
-Intentionally empty during initialization — endpoints are added in later
-phases. Routes are mounted under /api/v1/ from config/urls.py.
-"""
+"""Auth routes, mounted under /api/v1/auth/ (api.md §3.4)."""
 
 from django.urls import path
+
+from .views import LoginView, LogoutView, MeView, RefreshView
 
 app_name = "authentication"
 
 urlpatterns = [
-    # No endpoints defined yet.
+    path("login", LoginView.as_view(), name="login"),
+    path("refresh", RefreshView.as_view(), name="refresh"),
+    path("logout", LogoutView.as_view(), name="logout"),
+    path("me", MeView.as_view(), name="me"),
 ]

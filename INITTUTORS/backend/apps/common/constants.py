@@ -63,6 +63,16 @@ class AnnouncementType(models.TextChoices):
     GENERAL = "general", "General"
 
 
+class InstituteStatus(models.TextChoices):
+    ACTIVE = "active", "Active"
+    INACTIVE = "inactive", "Inactive"
+
+
+class TeacherStatus(models.TextChoices):
+    ACTIVE = "active", "Active"
+    INACTIVE = "inactive", "Inactive"
+
+
 # Notification channel fallback priority (BR-7.2 / api.md §12.5).
 DEFAULT_NOTIFICATION_CHANNEL_PRIORITY = [
     NotificationChannel.WHATSAPP,

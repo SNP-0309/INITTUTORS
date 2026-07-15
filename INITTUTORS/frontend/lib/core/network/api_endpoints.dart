@@ -11,4 +11,18 @@ class ApiEndpoints {
   static const String apiPrefix = '/api/v1';
 
   static String get baseUrl => '${Env.apiBaseUrl}$apiPrefix';
+
+  static const String institutes = '/institutes/';
+
+  static const String teachers = '/teachers/';
+
+  static const String students = '/students/';
+
+  static const String mediaUpload = '/media/upload/';
+
+  static const String batches = '/batches/';
+
+  static const String subjects = '/batches/subjects/';
+
+  static const String classrooms = '/batches/classrooms/';
 }
