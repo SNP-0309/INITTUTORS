@@ -18,7 +18,8 @@ django-environ==0.11.2
 
 # --- Database (Supabase PostgreSQL) ---
 dj-database-url==2.3.0
-psycopg2-binary==2.9.10
+# psycopg2-binary==2.9.10
+
 
 # --- WSGI server (production) ---
 gunicorn==23.0.0

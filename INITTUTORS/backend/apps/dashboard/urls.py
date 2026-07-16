@@ -1,13 +1,11 @@
-﻿"""URL routes for the dashboard app.
-
-Intentionally empty during initialization — endpoints are added in later
-phases. Routes are mounted under /api/v1/ from config/urls.py.
+"""URL routes for the dashboard app.
 """
 
 from django.urls import path
+from .views import OwnerDashboardView
 
 app_name = "dashboard"
 
 urlpatterns = [
-    # No endpoints defined yet.
+    path("owner/", OwnerDashboardView.as_view(), name="owner-dashboard"),
 ]

@@ -19,7 +19,9 @@ api_v1_patterns = [
     path("students/", include("apps.students.urls")),
     path("media/", include("apps.media.urls")),
     path("batches/", include("apps.batches.urls")),
+    path("dashboard/", include("apps.dashboard.urls")),
 ]
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
