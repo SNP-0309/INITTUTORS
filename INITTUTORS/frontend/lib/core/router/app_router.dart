@@ -20,8 +20,10 @@ import '../../features/students/presentation/screens/student_edit_screen.dart';
 import '../../features/batches/presentation/screens/batch_list_screen.dart';
 import '../../features/batches/presentation/screens/batch_detail_screen.dart';
 import '../../features/batches/presentation/screens/batch_create_screen.dart';
+import '../../features/dashboard/presentation/screens/admin_dashboard_screen.dart';
 import 'placeholder_screen.dart';
 import 'route_paths.dart';
+
 
 /// Application router (go_router), configured with the full route map from
 /// frontend.md §4.2 plus the auth guard strategy from §4.1.
@@ -77,9 +79,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       // --- Admin ---
       GoRoute(
         path: RoutePaths.admin,
-        builder: (context, state) =>
-            const PlaceholderScreen('Admin Dashboard', showLogout: true),
+        builder: (context, state) => const AdminDashboardScreen(),
       ),
+
       GoRoute(
         path: RoutePaths.adminStudents,
         builder: (context, state) => const StudentListScreen(),

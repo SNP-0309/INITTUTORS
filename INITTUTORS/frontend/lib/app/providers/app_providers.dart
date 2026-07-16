@@ -12,6 +12,9 @@ import '../../features/students/data/student_api.dart';
 import '../../features/students/data/student_repository.dart';
 import '../../features/batches/data/batch_api.dart';
 import '../../features/batches/data/batch_repository.dart';
+import '../../features/dashboard/data/dashboard_api.dart';
+import '../../features/dashboard/data/dashboard_repository.dart';
+
 
 /// Global Riverpod providers (app-wide singletons + dependency wiring).
 ///
@@ -68,3 +71,12 @@ final batchApiProvider = Provider<BatchApi>(
 final batchRepositoryProvider = Provider<BatchRepository>(
   (ref) => BatchRepository(ref.read(batchApiProvider)),
 );
+
+final dashboardApiProvider = Provider<DashboardApi>(
+  (ref) => DashboardApi(ref.read(apiClientProvider)),
+);
+
+final dashboardRepositoryProvider = Provider<DashboardRepository>(
+  (ref) => DashboardRepository(ref.read(dashboardApiProvider)),
+);
+

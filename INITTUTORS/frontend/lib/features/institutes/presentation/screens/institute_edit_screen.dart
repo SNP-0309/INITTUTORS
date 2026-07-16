@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theme/app_tokens.dart';
-import '../../../../core/router/route_paths.dart';
 import '../../domain/institute_state.dart';
 import '../controllers/institute_controller.dart';
 

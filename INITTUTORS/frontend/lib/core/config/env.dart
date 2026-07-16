@@ -16,8 +16,19 @@ class Env {
 
   static String _read(String key, {String fallback = ''}) {
     // Compile-time override wins over the runtime .env file.
-    final fromDefine = String.fromEnvironment(key);
-    if (fromDefine.isNotEmpty) return fromDefine;
+    String? fromDefine;
+    switch (key) {
+      case 'API_BASE_URL':
+        fromDefine = const String.fromEnvironment('API_BASE_URL');
+        break;
+      case 'ENVIRONMENT':
+        fromDefine = const String.fromEnvironment('ENVIRONMENT');
+        break;
+      case 'USE_MOCK_API':
+        fromDefine = const String.fromEnvironment('USE_MOCK_API');
+        break;
+    }
+    if (fromDefine != null && fromDefine.isNotEmpty) return fromDefine;
     return dotenv.maybeGet(key) ?? fallback;
   }
 
@@ -29,4 +40,7 @@ class Env {
   static String get environment => _read('ENVIRONMENT', fallback: 'development');
 
   static bool get isProduction => environment == 'production';
+
+  /// True if using mock API responses instead of a running backend.
+  static bool get useMockApi => _read('USE_MOCK_API', fallback: 'false') == 'true';
 }

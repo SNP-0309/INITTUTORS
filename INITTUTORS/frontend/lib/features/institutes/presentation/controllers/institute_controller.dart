@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../app/providers/app_providers.dart';
 import '../../data/institute_api.dart';
-import '../../domain/institute.dart';
 import '../../domain/institute_state.dart';
 
 class InstituteController extends Notifier<InstituteState> {

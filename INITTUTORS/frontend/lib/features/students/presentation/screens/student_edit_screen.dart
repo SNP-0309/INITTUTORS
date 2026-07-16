@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -269,7 +268,7 @@ class _StudentEditScreenState extends ConsumerState<StudentEditScreen> {
                 ),
                 const SizedBox(height: AppTokens.space3),
                 DropdownButtonFormField<String>(
-                  value: _status,
+                  initialValue: _status,
                   decoration: const InputDecoration(
                     labelText: 'Enrollment Status',
                     border: OutlineInputBorder(),
@@ -377,7 +376,7 @@ class _StudentEditScreenState extends ConsumerState<StudentEditScreen> {
                 ),
                 const SizedBox(height: AppTokens.space3),
                 DropdownButtonFormField<String>(
-                  value: _parentRelation,
+                  initialValue: _parentRelation,
                   decoration: const InputDecoration(
                     labelText: 'Relation *',
                     border: OutlineInputBorder(),

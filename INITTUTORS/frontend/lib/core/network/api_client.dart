@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 
 import '../../features/auth/data/token_storage.dart';
+import '../config/env.dart';
 import 'api_endpoints.dart';
+import 'mock_interceptor.dart';
 
 /// Single configured [Dio] instance for talking to the AMS backend.
 ///
@@ -10,12 +12,16 @@ import 'api_endpoints.dart';
 /// raw HTTP calls — it goes through repositories that use this client.
 class ApiClient {
   ApiClient(this._tokens) : _dio = Dio(_baseOptions()) {
-    _dio.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: _onRequest,
-        onError: _onError,
-      ),
-    );
+    if (Env.useMockApi) {
+      _dio.interceptors.add(MockInterceptor());
+    } else {
+      _dio.interceptors.add(
+        InterceptorsWrapper(
+          onRequest: _onRequest,
+          onError: _onError,
+        ),
+      );
+    }
   }
 
   final TokenStorage _tokens;

@@ -20,6 +20,9 @@ api_v1_patterns = [
     path("media/", include("apps.media.urls")),
     path("batches/", include("apps.batches.urls")),
     path("dashboard/", include("apps.dashboard.urls")),
+    path("attendance/", include("apps.attendance.urls")),
+    path("homework/", include("apps.homework.urls")),
+    path("announcements/", include("apps.announcements.urls")),
 ]
 
 

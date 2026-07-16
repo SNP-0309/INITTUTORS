@@ -1,13 +1,7 @@
-﻿"""URL routes for the announcements app.
-
-Intentionally empty during initialization — endpoints are added in later
-phases. Routes are mounted under /api/v1/ from config/urls.py.
-"""
-
 from django.urls import path
-
-app_name = "announcements"
+from .views import AnnouncementListCreateView, AnnouncementDetailView
 
 urlpatterns = [
-    # No endpoints defined yet.
+    path("", AnnouncementListCreateView.as_view()),
+    path("<uuid:pk>/", AnnouncementDetailView.as_view()),
 ]

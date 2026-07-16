@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/router/route_paths.dart';
 import '../../../auth/presentation/controllers/auth_controller.dart';
-import '../../../auth/domain/auth_state.dart';
 import '../../domain/institute_state.dart';
 import '../controllers/institute_controller.dart';
 

@@ -187,7 +187,7 @@ class _TeacherEditScreenState extends ConsumerState<TeacherEditScreen> {
                 ),
                 const SizedBox(height: AppTokens.space3),
                 DropdownButtonFormField<String>(
-                  value: _status,
+                  initialValue: _status,
                   decoration: const InputDecoration(
                     labelText: 'Status',
                     border: OutlineInputBorder(),

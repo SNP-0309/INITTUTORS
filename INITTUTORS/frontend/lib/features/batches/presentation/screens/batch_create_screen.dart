@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../app/providers/app_providers.dart';
 import '../../../teachers/domain/teacher.dart' as dom_teacher;
-import '../../domain/batch.dart';
 import '../../domain/batch_state.dart';
 import '../controllers/batch_controller.dart';
 
@@ -201,7 +200,7 @@ class _BatchCreateScreenState extends ConsumerState<BatchCreateScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   DropdownButtonFormField<String>(
-                    value: day,
+                    initialValue: day,
                     decoration: const InputDecoration(labelText: 'Day of Week'),
                     items: const [
                       DropdownMenuItem(value: 'mon', child: Text('Monday')),
@@ -370,7 +369,7 @@ class _BatchCreateScreenState extends ConsumerState<BatchCreateScreen> {
                         children: [
                           Expanded(
                             child: DropdownButtonFormField<String>(
-                              value: _selectedSubjectId,
+                              initialValue: _selectedSubjectId,
                               decoration: const InputDecoration(
                                 labelText: 'Subject *',
                                 border: OutlineInputBorder(),
@@ -391,7 +390,7 @@ class _BatchCreateScreenState extends ConsumerState<BatchCreateScreen> {
                       ),
                       const SizedBox(height: AppTokens.space3),
                       DropdownButtonFormField<String>(
-                        value: _selectedTeacherId,
+                        initialValue: _selectedTeacherId,
                         decoration: const InputDecoration(
                           labelText: 'Assign Teacher *',
                           border: OutlineInputBorder(),
@@ -413,7 +412,7 @@ class _BatchCreateScreenState extends ConsumerState<BatchCreateScreen> {
                         children: [
                           Expanded(
                             child: DropdownButtonFormField<String>(
-                              value: _selectedClassroomId,
+                              initialValue: _selectedClassroomId,
                               decoration: const InputDecoration(
                                 labelText: 'Classroom (Optional)',
                                 border: OutlineInputBorder(),
