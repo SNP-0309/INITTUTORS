@@ -5,9 +5,10 @@
 Django==5.1.4
 djangorestframework==3.15.2
 
-# --- Authentication (JWT) ---
+# --- Authentication (JWT + password hashing) ---
 djangorestframework-simplejwt==5.3.1
 PyJWT==2.13.0
+bcrypt==4.2.1
 
 # --- CORS ---
 django-cors-headers==4.6.0

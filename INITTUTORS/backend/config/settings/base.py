@@ -56,6 +56,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
 ]
 
@@ -64,6 +65,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "apps.common",
     "apps.authentication",
+    "apps.institutes",
+    "apps.teachers",
     "apps.students",
     "apps.batches",
     "apps.attendance",
@@ -129,11 +132,23 @@ DATABASES = {
 }
 
 # ---------------------------------------------------------------------------
-# Password validation
+# Authentication
 # ---------------------------------------------------------------------------
+AUTH_USER_MODEL = "authentication.User"
+
+# bcrypt (cost factor 12) as the primary password hasher, per backend.md §5.1.
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+]
+
+# Password policy: min 8 chars, at least 1 letter + 1 number (features.md §1.2).
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {"min_length": 8},
+    },
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
@@ -176,6 +191,13 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": (
         "rest_framework.renderers.JSONRenderer",
     ),
+    # Standard error envelope (api.md §4.1/§4.3).
+    "EXCEPTION_HANDLER": "apps.common.exceptions.custom_exception_handler",
+    # Rate limiting (api.md §4.6). The `auth` scope is applied per-endpoint by
+    # the login throttle (5 requests / 15 min).
+    "DEFAULT_THROTTLE_RATES": {
+        "auth": "5/15m",
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -190,9 +212,15 @@ SIMPLE_JWT = {
         days=env.int("JWT_REFRESH_TOKEN_LIFETIME_DAYS", default=30)
     ),
     "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": False,
+    # Blacklist the old refresh token on rotation and on logout — the
+    # Django-idiomatic equivalent of the reuse-detection/invalidation intent in
+    # backend.md §5.2 / api.md §3.1 (token_version + institute_id are omitted:
+    # multi-tenancy is out of scope per database.md §2).
+    "BLACKLIST_AFTER_ROTATION": True,
     "SIGNING_KEY": env("JWT_SECRET", default=SECRET_KEY),
     "AUTH_HEADER_TYPES": ("Bearer",),
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "sub",
 }
 
 # ---------------------------------------------------------------------------

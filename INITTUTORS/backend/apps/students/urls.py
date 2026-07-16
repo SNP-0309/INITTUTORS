@@ -1,13 +1,9 @@
-﻿"""URL routes for the students app.
-
-Intentionally empty during initialization — endpoints are added in later
-phases. Routes are mounted under /api/v1/ from config/urls.py.
-"""
-
 from django.urls import path
+from .views import StudentListCreateView, StudentDetailView
 
 app_name = "students"
 
 urlpatterns = [
-    # No endpoints defined yet.
+    path("", StudentListCreateView.as_view(), name="student-list-create"),
+    path("<uuid:pk>/", StudentDetailView.as_view(), name="student-detail"),
 ]
