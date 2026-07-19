@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academy IQ - Announcements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-container": "#006693",
+                        "tertiary": "#004d70",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#b8e0ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#505f76",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#001e2f",
+                        "outline": "#777587",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface-variant": "#464555",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "inverse-primary": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-container": "#54647a",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary-container": "#d0e1fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface font-body-md md:font-body-lg pb-24 md:pb-0 pt-16 md:pt-0">
+<!-- TopAppBar (Mobile Only based on JSON logic, but implementing as instructed) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 bg-surface-container-lowest dark:bg-surface-dim shadow-sm dark:shadow-none md:hidden">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a user in a well-lit studio environment, subtle lighting, modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClHqZ6wThRAzk3LH89urqyplPpuQSboC2lSp_3uf-GRvFf6zDQcHQcXgzYkA6CM4NJAEHIh_l3wDMzVca3zrkBnxs2l587SP44iekCQmLJvTkc5dC459FBBtNYnrFqIw-TDgRaDH8YUKm4KdarXSf0U6zu2gCoZRU9jiEesByUs--Cuh35qPwob8zHRZW9aR1F9YJ-uDJlA7A0s5Ar1IPqiOzAFYXoTmGs2zwyM-uAk_7k0kEt8Ps-WyVt35w5HbtiL8DMTW4znB8"/>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Academy IQ</span>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Area with Sidebar Layout for Desktop -->
+<div class="md:flex min-h-screen">
+<!-- Desktop Sidebar (Synthesized from App Map context for Desktop) -->
+<aside class="hidden md:flex w-64 flex-col bg-surface-container-lowest shadow-sm min-h-screen fixed left-0 top-0 pt-lg pb-lg border-r border-surface-variant z-40">
+<div class="px-lg mb-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">Academy IQ</span>
+</div>
+<nav class="flex-1 px-md flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Batches</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto w-full">
+<div class="flex justify-between items-end mb-lg mt-sm md:mt-0">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-1">Announcements</h1>
+<p class="text-on-surface-variant font-body-md">Stay updated with the latest institutional notices.</p>
+</div>
+<!-- Desktop Add Button -->
+<button class="hidden md:flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-full hover:opacity-90 transition-opacity font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    New Announcement
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Main Announcements Stream -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<!-- Pinned Section Header -->
+<div class="flex items-center gap-2 text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined text-[18px]">push_pin</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Pinned</span>
+</div>
+<!-- Pinned Announcement Card -->
+<article class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-primary-fixed-dim relative overflow-hidden group cursor-pointer hover:shadow-md transition-shadow">
+<!-- Decorative gradient blob -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-fixed rounded-full blur-2xl opacity-50 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex flex-wrap gap-2">
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> Urgent
+                                </span>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full">General</span>
+</div>
+<button class="text-primary p-1 rounded-full hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+</button>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2 relative z-10">Annual Sports Day Postponed</h2>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2 relative z-10">Due to unforeseen weather conditions, the Annual Sports Day scheduled for this Friday has been postponed. A new date will be announced shortly. All scheduled classes will resume as normal.</p>
+<div class="flex items-center justify-between border-t border-surface-variant pt-4 mt-auto relative z-10">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm">2 hours ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary group-hover:underline">Read full notice</span>
+</div>
+</article>
+<div class="w-full h-px bg-surface-variant my-xs"></div>
+<!-- Regular Announcement Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-variant hover:border-outline-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-2">
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full">Holiday</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface mb-2">Mid-Term Break Schedule</h3>
+<p class="font-body-md text-on-surface-variant mb-4 line-clamp-2">The institution will remain closed from October 15th to October 20th for the scheduled mid-term break. Library services will operate on reduced hours.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">Yesterday</span>
+</div>
+</div>
+</article>
+<!-- Regular Announcement Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-variant hover:border-outline-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-3 py-1 rounded-full">Exam</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface mb-2">Final Semester Examination Timetable Released</h3>
+<p class="font-body-md text-on-surface-variant mb-4 line-clamp-2">The provisional timetable for the upcoming final semester examinations is now available on the portal. Please review your schedules and report any clashes immediately.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">Oct 10, 2023</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar / Filter / Highlights -->
+<div class="flex flex-col gap-md">
+<!-- Categories Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-variant">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-4">Categories</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full border border-primary text-primary bg-primary-fixed-dim bg-opacity-20 font-label-sm text-label-sm transition-colors">All (24)</button>
+<button class="px-4 py-2 rounded-full border border-surface-variant text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm transition-colors">General (12)</button>
+<button class="px-4 py-2 rounded-full border border-surface-variant text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm transition-colors">Exams (5)</button>
+<button class="px-4 py-2 rounded-full border border-surface-variant text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm transition-colors">Holidays (3)</button>
+<button class="px-4 py-2 rounded-full border border-surface-variant text-on-surface-variant hover:bg-surface-container-low font-label-sm text-label-sm transition-colors">Events (4)</button>
+</div>
+</div>
+<!-- Important Contacts Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-variant">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-4">Quick Links</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="flex items-center gap-3 text-on-surface hover:text-primary transition-colors" href="#">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">policy</span>
+</div>
+<span class="font-body-md text-body-md">Institution Guidelines</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface hover:text-primary transition-colors" href="#">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+</div>
+<span class="font-body-md text-body-md">Help Desk</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button (Mobile Only) -->
+<button class="md:hidden fixed bottom-24 right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:bg-opacity-90 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined">add</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest dark:bg-surface-dim shadow-lg dark:shadow-none rounded-t-xl border-t border-surface-variant">
+<!-- Dashboard -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface active:scale-90 transition-transform duration-200 px-2 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<!-- Students -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface active:scale-90 transition-transform duration-200 px-2 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm mt-1">Students</span>
+</a>
+<!-- Batches -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface active:scale-90 transition-transform duration-200 px-2 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm mt-1">Batches</span>
+</a>
+<!-- More (Active State as requested, representing Announcements/Other) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-tertiary-container text-on-primary-container dark:text-on-tertiary-container rounded-full px-4 py-1 hover:bg-surface-variant dark:hover:bg-inverse-surface active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">more_horiz</span>
+<span class="font-label-sm text-label-sm mt-1">More</span>
+</a>
+</nav>
+</body></html>

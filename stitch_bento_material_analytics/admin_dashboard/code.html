@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academy IQ - Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f7f9fb",
+                      "tertiary-container": "#006693",
+                      "tertiary": "#004d70",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary-container": "#b8e0ff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "primary-fixed": "#e2dfff",
+                      "on-primary-fixed": "#0f0069",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed": "#c9e6ff",
+                      "surface-container-low": "#f2f4f6",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "surface-container": "#eceef0",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "primary": "#3525cd",
+                      "inverse-surface": "#2d3133",
+                      "secondary": "#505f76",
+                      "on-surface": "#191c1e",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-tertiary-fixed": "#001e2f",
+                      "outline": "#777587",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed": "#0b1c30",
+                      "on-surface-variant": "#464555",
+                      "error-container": "#ffdad6",
+                      "on-background": "#191c1e",
+                      "outline-variant": "#c7c4d8",
+                      "on-primary-container": "#dad7ff",
+                      "inverse-primary": "#c3c0ff",
+                      "primary-container": "#4f46e5",
+                      "on-secondary-container": "#54647a",
+                      "surface": "#f7f9fb",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-tint": "#4d44e3",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#d3e4fe",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "secondary-container": "#d0e1fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "4px",
+                      "margin-desktop": "32px",
+                      "md": "16px",
+                      "3xl": "64px",
+                      "2xl": "48px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .icon-filled {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-dim shadow-sm dark:shadow-none fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 md:px-margin-desktop">
+<div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional headshot avatar of a smiling educator or administrator in a bright, modern office setting. High-key lighting, crisp focus, representing a premium SaaS user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt9pZSbsr9x3Sb-vxPuN1sfwAh7zS8XVn-Tc6p1PMnADdSNdIaLHG0aqilFt6IKwU8poMjmnhHivSo5PpN6YzbCRi8ToD4krypsdQajxS_U6FOu72x-W1U3rYRAgSqho6i1hjt494C1_eq3vhwVbN1_Kh7vVY8Wyre-AMUawi7fE0VfgKRihi-NPQD3du8ZmEc8n1j2zhoEqLi02DgNqGoPFSdI7FdVo7yOfC5RYv-grZI-GTeceAdp2UahUbwCn9ColFYDeUCesg"/>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Academy IQ</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 duration-100">
+<span class="material-symbols-outlined icon-filled">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto space-y-lg">
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-md md:gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Total Students</p>
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">1,240</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Today's Attendance</p>
+<div class="flex items-end gap-sm">
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">94.2%</p>
+<span class="text-green-600 text-sm mb-1 flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_upward</span></span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">New Admissions</p>
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">42</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">This month</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Pending Fees</p>
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-error">$12.5k</p>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Schedule Section (Spans 2 columns on desktop) -->
+<section class="md:col-span-2 space-y-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Today's Schedule</h2>
+<div class="space-y-md">
+<!-- Batch Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container flex flex-col sm:flex-row justify-between sm:items-center gap-md">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Grade 10 - Mathematics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 10:00 AM - 11:30 AM
+                            </p>
+</div>
+<div class="flex items-center gap-md sm:text-right">
+<div class="flex items-center gap-xs bg-surface-container p-xs rounded-lg px-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Small avatar of a male teacher in a modern educational SaaS platform, professional, smiling, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVHMYLRIEoTQUMzuy6eBe8AxQhE42bejo3DGdBfQWYX6X3GSmEv4yvLqeFq3WH62r7smHamODv_MMfA90V3UI37tNh-t8rwtjbg9IWhJ_sKuzGmAVxiRMZcz5iRQgx1ZudmZ0hbXnSt35zLPdIqzd4C7Q246c4KJzFoyn47ToK3H6rle90PWiSFXpc4B06PXRX2ha1PMRgiMG9X9qi6V-7dMAMcZTQMX4VKQzRowVXWAToJuvX3l9bstEe8yZICRfob62LlqYQU9k"/>
+<span class="font-label-md text-label-md text-on-surface">Mr. Smith</span>
+</div>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed py-1 px-3 rounded-full">24 Students</span>
+</div>
+</div>
+<!-- Batch Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container flex flex-col sm:flex-row justify-between sm:items-center gap-md">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Grade 12 - Physics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 12:00 PM - 01:30 PM
+                            </p>
+</div>
+<div class="flex items-center gap-md sm:text-right">
+<div class="flex items-center gap-xs bg-surface-container p-xs rounded-lg px-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Small avatar of a female teacher in a modern educational SaaS platform, professional, smiling, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm_ALKzsmZ2_mxTWODTkQrGT6Py7ASls-0btbGXqxW_hvx3BkE3CZfdPXBaEqdhsAYBV4pTlsmxd93Q10HRlMY-Lp0uEreaHFXnf8BEn1zKk0qeV8P6Lk7qG1Xgz4bsIZJ0sR2Kul7UliAd3YHTPC15UmFVCxmiV_AiWv0nU1ssVZrNin2Xi25t5pXgIi12KERbauHa5KoqZamFbIbDhTuWF8PATFFUGutEYcUkrDKMnrD_qyZLWO7Ir0VTYH99eUM1uW5jsgIftY"/>
+<span class="font-label-md text-label-md text-on-surface">Ms. Davis</span>
+</div>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed py-1 px-3 rounded-full">18 Students</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Section (Spans 1 column on desktop) -->
+<aside class="space-y-gutter">
+<!-- Attendance Overview -->
+<section class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-container">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Attendance Overview</h2>
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Marked</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">1,168 / 1,240</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 mb-sm">
+<div class="bg-primary h-2 rounded-full" style="width: 94%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-right">72 Pending</p>
+</section>
+<!-- Recent Announcements -->
+<section class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-surface-container">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Announcements</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="border-b border-surface-container pb-sm mb-sm">
+<h3 class="font-body-md text-body-md font-semibold text-on-surface mb-xs">Mid-Term Exam Schedule Released</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Published 2 hours ago by Admin</p>
+</div>
+<div>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface mb-xs">Staff Meeting Tomorrow</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Published yesterday by Principal</p>
+</div>
+</section>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-tertiary-container text-on-primary-container dark:text-on-tertiary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined icon-filled">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm mt-1">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm mt-1">Batches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm mt-1">More</span>
+</a>
+</nav>
+</body></html>

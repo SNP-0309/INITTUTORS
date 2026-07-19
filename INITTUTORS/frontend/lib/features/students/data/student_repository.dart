@@ -1,42 +1,46 @@
-import '../domain/student.dart';
-import 'student_api.dart';
+// lib/features/students/data/student_repository.dart
+import 'package:dio/dio.dart';
+import '../../../core/network/api_client.dart';
+import 'student_models.dart';
 
 class StudentRepository {
-  StudentRepository(this._api);
+  final Dio _dio = ApiClient.instance.dio;
 
-  final StudentApi _api;
-
-  Future<Student> createStudent(Map<String, dynamic> data) async {
-    final raw = await _api.createStudent(data);
-    return Student.fromJson(raw);
-  }
-
-  Future<Student> updateStudent(String id, Map<String, dynamic> data) async {
-    final raw = await _api.updateStudent(id, data);
-    return Student.fromJson(raw);
+  Future<PaginatedStudents> getStudents({int page = 1, String? search}) async {
+    final response = await _dio.get('/students/', queryParameters: {
+      'page': page,
+      if (search != null && search.isNotEmpty) 'search': search,
+    });
+    final data = _dio.extractData(response);
+    if (data is Map<String, dynamic>) {
+      return PaginatedStudents.fromJson(data);
+    }
+    // Handle non-paginated response
+    return PaginatedStudents(
+      count: (data as List).length,
+      results: (data).map((e) => Student.fromJson(e as Map<String, dynamic>)).toList(),
+    );
   }
 
   Future<Student> getStudent(String id) async {
-    final raw = await _api.getStudent(id);
-    return Student.fromJson(raw);
+    final response = await _dio.get('/students/$id/');
+    final data = _dio.extractData(response) as Map<String, dynamic>;
+    return Student.fromJson(data);
   }
 
-  Future<Map<String, dynamic>> listStudents({String? search, int page = 1}) async {
-    final data = await _api.listStudents(search: search, page: page);
-    final results = data['results'] as List<dynamic>;
-    final students = results.map((e) => Student.fromJson(e as Map<String, dynamic>)).toList();
-    return {
-      'students': students,
-      'count': data['count'] as int,
-      'hasMore': data['next'] != null,
-    };
+  Future<Student> createStudent(Map<String, dynamic> payload) async {
+    final response = await _dio.post('/students/', data: payload);
+    final data = _dio.extractData(response) as Map<String, dynamic>;
+    return Student.fromJson(data);
+  }
+
+  Future<Student> updateStudent(String id, Map<String, dynamic> payload) async {
+    final response = await _dio.put('/students/$id/', data: payload);
+    final data = _dio.extractData(response) as Map<String, dynamic>;
+    return Student.fromJson(data);
   }
 
   Future<void> deleteStudent(String id) async {
-    await _api.deleteStudent(id);
-  }
-
-  Future<String> uploadPhoto(String filePath) async {
-    return _api.uploadPhoto(filePath);
+    await _dio.delete('/students/$id/');
   }
 }

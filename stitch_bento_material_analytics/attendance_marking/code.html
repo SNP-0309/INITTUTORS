@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Attendance - Academy IQ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-container": "#006693",
+                        "tertiary": "#004d70",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#b8e0ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#505f76",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#001e2f",
+                        "outline": "#777587",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface-variant": "#464555",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "inverse-primary": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-container": "#54647a",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary-container": "#d0e1fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Smooth scrolling and hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Interactive Toggle Animations */
+        .attendance-toggle {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .attendance-toggle:active {
+            transform: scale(0.9);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-bright text-on-surface font-body-md h-screen flex flex-col overflow-hidden">
+<!-- Header (Task-Focused, suppressing global nav) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-sm pb-4 pt-safe">
+<div class="px-margin-mobile pt-4 flex flex-col gap-4 max-w-3xl mx-auto">
+<!-- Top Row: Back Action & Title -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:scale-95">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Mark Attendance</h1>
+</div>
+</div>
+<!-- Bottom Row: Context & Progress -->
+<div class="flex items-end justify-between pl-12 pr-2">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">menu_book</span>
+<span class="font-label-md text-label-md text-primary">Grade 10 - Physics</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_today</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">July 18, 2026</span>
+</div>
+</div>
+<div class="bg-primary-container/20 px-3 py-1.5 rounded-full border border-primary-container/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-primary">fact_check</span>
+<span class="font-label-md text-label-md text-primary">Marked: 1/24</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto no-scrollbar pt-[140px] pb-[90px] px-margin-mobile">
+<div class="max-w-3xl mx-auto flex flex-col gap-3">
+<!-- Student Row 1 (State: Present selected) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden p-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-surface-variant" data-alt="A professional headshot of a teenage female student with dark hair, wearing a neutral colored shirt. The lighting is soft and even, set against a clean, light gray background typical of a modern school ID photo. High quality, clear, bright." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOIZn3heSSjlHtxQWwIvk8Lb1KTCYpbgxDS3B7QRFP467c4x6d6vhwvd5LXclKXyN8kVd02mJxPIQzVjc9Yc2BFQ7eqH4cO-MpC727JaoFH16DZTrXpBwCHg9y-5V9pIdje1SjQC-Q4dcADYrJpEvH1dcbtsgmAdNeGMo4xxcuzbgyCWe9u1SqTkejYXSoxgGbZ1cpEXr247wrYc2F5VIeL4eOU1blHP_EOvZjqcJvti-R9U5sye9PSO4SZnd6TDSu55tCNpczV4c"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Sophia Martinez</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: 10042</span>
+</div>
+</div>
+<div class="flex gap-1.5">
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-primary text-on-primary shadow-sm border border-primary">P</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">A</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">L</button>
+</div>
+</div>
+<!-- Student Row 2 (State: Unselected) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden p-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-label-md text-label-md border border-outline-variant">
+                        EC
+                    </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Ethan Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: 10043</span>
+</div>
+</div>
+<div class="flex gap-1.5">
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">P</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">A</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">L</button>
+</div>
+</div>
+<!-- Student Row 3 (State: Absent selected) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden p-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-surface-variant" data-alt="A professional headshot of a teenage male student with short blonde hair, wearing a dark blue sweater. The lighting is soft studio lighting, set against a pristine white background. High contrast, sharp focus, suitable for an educational profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA88vBbpaU1FCPY2ikC38cEEQhUf52mRl1frg6xQUEmkF3duV4FGDhXUshl1nFNEosDwkk5OhQHiyQeelnNYPlXnQ8Eg2WMko4Jk7qkOvJur3Jm40qy4kQIZKOeAiMGNxrAkGCRVTHqC7_mi5P3ja4m3itGp1MTNNqGPDrfkgAxw7IYQ_IgLF-Ap3MEJynYV6mty09HUqRwAXxTC18y9yB8GriRbNnaDkwWNCNBRzEG11XM9j6zlyOY53n33rrec2meXgJWsulMCmE"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Liam O'Connor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: 10044</span>
+</div>
+</div>
+<div class="flex gap-1.5">
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">P</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-error text-on-error shadow-sm border border-error">A</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">L</button>
+</div>
+</div>
+<!-- Student Row 4 (State: Late selected) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden p-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-surface-variant" data-alt="A professional headshot of a teenage female student with curly brown hair and glasses, wearing a light green blouse. The portrait is well-lit with natural looking light, against a soft gray backdrop. Clean, high resolution, modern SaaS UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMOMEXNIu34U7C_SdvD_3vRlU60jJeNAYzMwcBF8pnFjbfBMv6gE6_hJ_CbvaXtFMuWty7N3bRxQ41Rg9CJKcsCBo9rf5lBo-329N7x1JWguqoEsiiI0BJH3ZcyBxdRYT2cCGIqyiVxhVxYKcURw34bmtO_n66TKD5wj19Osfi2Xhr6KNQ-oLxwMySKEv0hi4eh1NdYlURpasLSOC2961MtswPRXFrtN_7E3AXQnV0X9FokEUmFrmufETZIi0FzwF4FhWdYdIJ1Ws"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Chloe Davis</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: 10045</span>
+</div>
+</div>
+<div class="flex gap-1.5">
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">P</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-container-high">A</button>
+<button class="attendance-toggle w-9 h-9 rounded-full flex items-center justify-center font-label-md text-label-md bg-tertiary text-on-tertiary shadow-sm border border-tertiary">L</button>
+</div>
+</div>
+<!-- More List Items (Visual Padding) -->
+<div class="h-4"></div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-4px_10px_-2px_rgba(0,0,0,0.05)] px-margin-mobile py-4 pb-safe">
+<div class="max-w-3xl mx-auto">
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center shadow-sm hover:bg-primary-fixed-variant transition-colors active:scale-[0.98]">
+                Submit Attendance
+            </button>
+</div>
+</footer>
+</body></html>

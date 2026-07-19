@@ -1,75 +1,29 @@
-import '../domain/batch.dart';
-import 'batch_api.dart';
+// lib/features/batches/data/batch_repository.dart
+import 'package:dio/dio.dart';
+import '../../../core/network/api_client.dart';
+import 'batch_models.dart';
 
 class BatchRepository {
-  BatchRepository(this._api);
+  final Dio _dio = ApiClient.instance.dio;
 
-  final BatchApi _api;
-
-  Future<Batch> createBatch(Map<String, dynamic> data) async {
-    final raw = await _api.createBatch(data);
-    return Batch.fromJson(raw);
+  Future<List<Batch>> getBatches() async {
+    final response = await _dio.get('/batches/');
+    final data = _dio.extractData(response);
+    if (data is List) {
+      return data.map((e) => Batch.fromJson(e as Map<String, dynamic>)).toList();
+    }
+    if (data is Map && data.containsKey('results')) {
+      return (data['results'] as List)
+          .map((e) => Batch.fromJson(e as Map<String, dynamic>))
+          .toList();
+    }
+    return [];
   }
 
-  Future<Batch> updateBatch(String id, Map<String, dynamic> data) async {
-    final raw = await _api.updateBatch(id, data);
-    return Batch.fromJson(raw);
-  }
-
-  Future<Map<String, dynamic>> getBatch(String id) async {
-    final data = await _api.getBatch(id);
-    final batchRaw = data['batch'] as Map<String, dynamic>;
-    final rosterRaw = data['roster'] as List<dynamic>;
-    
-    final batch = Batch.fromJson(batchRaw);
-    final roster = rosterRaw.map((e) => BatchStudent.fromJson(e as Map<String, dynamic>)).toList();
-    
-    return {
-      'batch': batch,
-      'roster': roster,
-    };
-  }
-
-  Future<Map<String, dynamic>> listBatches({String? search, int page = 1}) async {
-    final data = await _api.listBatches(search: search, page: page);
-    final results = data['results'] as List<dynamic>;
-    final batches = results.map((e) => Batch.fromJson(e as Map<String, dynamic>)).toList();
-    return {
-      'batches': batches,
-      'count': data['count'] as int,
-      'hasMore': data['next'] != null,
-    };
-  }
-
-  Future<void> deleteBatch(String id) async {
-    await _api.deleteBatch(id);
-  }
-
-  Future<void> assignStudent(String batchId, String studentId) async {
-    await _api.assignStudent(batchId, studentId);
-  }
-
-  Future<void> removeStudent(String batchId, String studentId) async {
-    await _api.removeStudent(batchId, studentId);
-  }
-
-  Future<List<Subject>> listSubjects() async {
-    final raw = await _api.listSubjects();
-    return raw.map((e) => Subject.fromJson(e as Map<String, dynamic>)).toList();
-  }
-
-  Future<List<Classroom>> listClassrooms() async {
-    final raw = await _api.listClassrooms();
-    return raw.map((e) => Classroom.fromJson(e as Map<String, dynamic>)).toList();
-  }
-
-  Future<Subject> createSubject(Map<String, dynamic> data) async {
-    final raw = await _api.createSubject(data);
-    return Subject.fromJson(raw);
-  }
-
-  Future<Classroom> createClassroom(Map<String, dynamic> data) async {
-    final raw = await _api.createClassroom(data);
-    return Classroom.fromJson(raw);
+  Future<Batch> getBatch(String id) async {
+    final response = await _dio.get('/batches/$id/');
+    return Batch.fromJson(_dio.extractData(response) as Map<String, dynamic>);
   }
 }
+
+// ─── Provider ─────────────────────────────────────────────────────────────────

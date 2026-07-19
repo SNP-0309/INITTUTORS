@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academy IQ - Students</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-container": "#006693",
+                        "tertiary": "#004d70",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#b8e0ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#505f76",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#001e2f",
+                        "outline": "#777587",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface-variant": "#464555",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "inverse-primary": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-container": "#54647a",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary-container": "#d0e1fb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin-desktop": "32px",
+                        "md": "16px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "label-sm": ["11px", { lineHeight: "14px", fontWeight: "500" }],
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "60px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full font-body-md antialiased overflow-hidden flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of an administrator in a modern office setting. Clear, natural lighting, high-quality, professional tone. Used as a tiny profile avatar in a header." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcFJwkrArYD_Hu1yNTaYWTOgMRrr7x_gK2B3j1B3eANXeXuALdS9o6B5YdMU7K22Ua5Rkt1L4_OLe_2kOZ6q8gDkVCs7BCIHCw4X-f7LUAeTta2cAjWGLejbpbJHU6oYH8faG18YbKBPpRXVEYNFcQRsDSN2qHMHatc7n49sSB5xwQ2TV20lej4uyXL4Cixgdc_wgh4BdteGnjzaBhWi-9ae0C51Q91J0sA0NzLn0LOqw_ieP4gAUI1-vv7bdTGPzZXCcOgRVpSjU"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Academy IQ</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 mb-16 md:mb-0 overflow-y-auto px-margin-mobile md:px-margin-desktop py-md">
+<!-- Search & Filter Area -->
+<div class="sticky top-0 bg-background/95 backdrop-blur-sm pt-4 pb-4 z-40">
+<!-- Search Bar -->
+<div class="relative w-full max-w-md md:max-w-xl mx-auto mb-4">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow" placeholder="Search by name or roll number" type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar max-w-md md:max-w-xl mx-auto px-1 pb-1">
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md border border-transparent flex items-center gap-2">
+                    Standard <span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-2">
+                    Status <span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-2">
+                    Section <span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Student List Grid (Bento/Card layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md max-w-7xl mx-auto pb-24">
+<!-- Student Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/30 flex items-center gap-md hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-low">
+<img alt="Student thumbnail" class="w-full h-full object-cover" data-alt="A portrait of a male high school student smiling. Well-lit, modern school environment backdrop. High resolution, clear facial features, suitable for a profile thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVAo7EkR4NgH2RIZ5jRSdaVoz5-i0-M9hFLnm_O699Q_CVyikCLxml63mXxUYN676hJA_qahwgOp4ZTBTZ-Nsc4SBPML9SN_H-l8vw0xI2TvJnDR991RV2sJzAyAwRhedicJUmoZUQLmc7-kJ28TaceQsf1KjHTKfoaZ2vpHEjSeo97oqHUyHDMK6nitIw57y1lFfHfEBlJvkk2jJwpKoFy_4D1z9ryLD-TA9u4N6XeQEixSwLSJHU51ghsQ2bVv1e-FV9_64lV_A"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Aarav Sharma</h3>
+<p class="font-body-sm text-on-surface-variant">Roll: #1024 • Grade 10</p>
+</div>
+<div class="shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 border border-emerald-200">
+                        Active
+                    </span>
+</div>
+</div>
+<!-- Student Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/30 flex items-center gap-md hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-low">
+<img alt="Student thumbnail" class="w-full h-full object-cover" data-alt="A portrait of a female middle school student looking thoughtful. Soft, natural lighting, modern educational setting. Clear, high-quality image for a student ID." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh74Y3z3v8pu8pKuYwbvriLJvk2Yq5GBGUD2KgukuhmF1Jm5-Lu53Bh8VkGOiClsXDGiSNeY4obI4EyZDwflv8I9Z15Pk_oYxruubS-e56JprxtxyIvj2pcoTdv0tY0kJZZ1_Coq6tByKuRywRy-KEs1IBR1IfE36Eoj3NEAgIt9mrvlA5OwfN59d-I7AguEvfw7FzmkVcsnS8UX8amA5ggLaYI2R9E-gtMVif5yJnlTTeNJQYB8Uzv7Wpo0XcJCj1CV9W38vYbbk"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Priya Patel</h3>
+<p class="font-body-sm text-on-surface-variant">Roll: #1025 • Grade 8</p>
+</div>
+<div class="shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 border border-emerald-200">
+                        Active
+                    </span>
+</div>
+</div>
+<!-- Student Card 3 (Left Status) -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/30 flex items-center gap-md hover:shadow-md transition-shadow relative overflow-hidden group opacity-75">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-low grayscale">
+<img alt="Student thumbnail" class="w-full h-full object-cover" data-alt="A portrait of a male student looking neutral. Slightly desaturated to indicate inactive status. Clean, professional lighting, school context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgfxHU5WFkZyOdZa6LGm-35rgg2coiUTuL1xnfl2qbzTJ06jO77YKK_uEiHRuipTHz8E1W_NpZIpO1piCZUa--K-vCHbhNHMgHEV4uAAAi_1Ki2LZzaFNR_cS3D9mLfJnWHOG-tATRuLkiBn1nuc-w_Zz9FI6aNjmVtlMq2GMwKhwkwd4xHl0TMG-q_TOi5BQb7ro0vGi85BQ5xJZNtyZjqk7MiHeZWhvr8R4sulRW4GFDXjc1bIkjezWyFSo16c-zpSGLoXTcGW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Rohan Kumar</h3>
+<p class="font-body-sm text-on-surface-variant">Roll: #0988 • Grade 12</p>
+</div>
+<div class="shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant border border-outline-variant">
+                        Left
+                    </span>
+</div>
+</div>
+<!-- Student Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/30 flex items-center gap-md hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-low flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm">
+                    SK
+                </div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Sanya Kapoor</h3>
+<p class="font-body-sm text-on-surface-variant">Roll: #1030 • Grade 9</p>
+</div>
+<div class="shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-amber-100 text-amber-800 border border-amber-200">
+                        Late
+                    </span>
+</div>
+</div>
+<!-- Student Card 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/30 flex items-center gap-md hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-low">
+<img alt="Student thumbnail" class="w-full h-full object-cover" data-alt="Portrait of a young male student with glasses. Bright, cheerful expression, well-lit classroom background. High-quality thumbnail avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf7Led39Jz0M4GE5Zy12MMm_qyIdQSv4TWsJAtnrxjnD-c-BK0cAAxgLvCg6MHSX_cOykcjp1VxIys-CVylFlMREdCNGtTcokLFP52K0ooAq3NsKv164lN-o2FDUgoMQio7CJSluw8yHfG_kwYDNbzO3z_cno-7P04h84dTZXsl1CXMuDFOlVi_dAqJrvIUGA2MBv1D_s2Y9f5VEWrb88x8snGRUsJb0JfKUALSBp-YWlpCe8LVjBUJEnJhGsipeYcwcOQM22-YNc"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Vikram Singh</h3>
+<p class="font-body-sm text-on-surface-variant">Roll: #1042 • Grade 11</p>
+</div>
+<div class="shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 border border-emerald-200">
+                        Active
+                    </span>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for adding student -->
+<button class="fixed right-6 bottom-24 md:bottom-8 w-14 h-14 rounded-2xl bg-primary text-on-primary shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex items-center justify-center z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+<span class="material-symbols-outlined text-[28px]" data-weight="fill">add</span>
+</button>
+<!-- BottomNavBar (Mobile only context) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest shadow-lg rounded-t-xl md:hidden border-t-0">
+<!-- Dashboard (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-variant transition-colors rounded-lg p-1 w-16" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<!-- Students (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-0.5" data-weight="fill">group</span>
+<span class="font-label-sm text-label-sm">Students</span>
+</a>
+<!-- Batches (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-variant transition-colors rounded-lg p-1 w-16" href="#">
+<span class="material-symbols-outlined mb-1">groups</span>
+<span class="font-label-sm text-label-sm">Batches</span>
+</a>
+<!-- More (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-variant transition-colors rounded-lg p-1 w-16" href="#">
+<span class="material-symbols-outlined mb-1">more_horiz</span>
+<span class="font-label-sm text-label-sm">More</span>
+</a>
+</nav>
+<!-- Desktop Sidebar Stub (hidden on mobile, illustrative for the system layout logic) -->
+<aside class="hidden md:flex fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant/30 flex-col py-4 z-40">
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-medium transition-colors" href="#">
+<span class="material-symbols-outlined" data-weight="fill">group</span>
+<span class="font-body-lg font-semibold">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-lg">Batches</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-body-lg">More</span>
+</a>
+</nav>
+</aside>
+<!-- Add margin to main content for desktop sidebar -->
+<style>
+        @media (min-width: 768px) {
+            main { margin-left: 16rem; }
+        }
+    </style>
+</body></html>

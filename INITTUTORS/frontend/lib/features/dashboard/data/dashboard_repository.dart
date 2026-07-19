@@ -1,13 +1,14 @@
-import '../domain/owner_dashboard_data.dart';
-import 'dashboard_api.dart';
+// lib/features/dashboard/data/dashboard_repository.dart
+import 'package:dio/dio.dart';
+import '../../../core/network/api_client.dart';
+import 'dashboard_models.dart';
 
 class DashboardRepository {
-  DashboardRepository(this._api);
+  final Dio _dio = ApiClient.instance.dio;
 
-  final DashboardApi _api;
-
-  Future<OwnerDashboardData> getOwnerDashboard() async {
-    final raw = await _api.getOwnerDashboard();
-    return OwnerDashboardData.fromJson(raw);
+  Future<DashboardData> getOwnerDashboard() async {
+    final response = await _dio.get('/dashboard/owner/');
+    final data = _dio.extractData(response) as Map<String, dynamic>;
+    return DashboardData.fromJson(data);
   }
 }

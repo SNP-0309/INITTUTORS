@@ -1,6 +1,6 @@
 {
-    "name": "ams",
-    "short_name": "ams",
+    "name": "ams_app",
+    "short_name": "ams_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

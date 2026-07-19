@@ -1,15 +1,34 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'core/theme/app_theme.dart';
+import 'shared/providers/router_provider.dart';
 
-import 'app/app.dart';
-import 'core/config/env.dart';
-
-/// Application entrypoint.
-///
-/// Loads environment config, then mounts the app inside a Riverpod
-/// [ProviderScope]. No business logic or UI lives here.
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Env.load();
+  // Keep status bar transparent / dark icons
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: Colors.white,
+    systemNavigationBarIconBrightness: Brightness.dark,
+  ));
   runApp(const ProviderScope(child: AmsApp()));
+}
+
+class AmsApp extends ConsumerWidget {
+  const AmsApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+
+    return MaterialApp.router(
+      title: 'Academy IQ',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      routerConfig: router,
+    );
+  }
 }
